@@ -1,0 +1,28 @@
+<script type="text/javascript" language="JavaScript">
+    function send_url(){
+        document.cookie="fname=<?php echo $person->fname?>";
+        document.cookie="lname=<?php echo $person->lname?>";
+    }
+
+</script>
+<div class="col-sm-5">
+    <hr>
+    <div class='panel panel-danger'>
+        <div class='panel-heading'>
+            <h3 class='panel-title'>
+                <span class='glyphicon glyphicon-ban-circle'></span>
+               NOTICE!!
+            </h3>
+        </div>
+    </div>
+    <div class='panel-body'>
+        <p><span style="color: darkblue"><?php echo $person->fname ?></span> we send you an SMS via <?php echo $person->info($con)['telephone'] ?> whenever we see any of your items. If u changed number,then put the new one below or still put the old one
+        </p>
+        <form action='index.php' method='post'>
+            <div class='form-group'>
+                <input type='tel' class='form-control' id="t" name='search_tel' placeholder='Update Number' required='true'/>
+            </div>
+            <button onclick="send_url()" type='submit' class='btn btn-success' style='background-color: darkgreen' name='num_btn'>Submit</button>
+        </form>
+    </div>
+</div>
